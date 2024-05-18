@@ -1,5 +1,7 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import rejected from '../img/octagon.svg';
+import resolve from '../img/circle.svg';
 
 const myForm = document.querySelector('.form');
 const inputDelay = document.querySelector('input[name="delay"]');
@@ -35,7 +37,7 @@ function createPromises(event) {
     .then(delay => {
       iziToast.show({
         message: `Fulfilled promise in ${delay}ms`,
-        iconUrl: '../img/circle.svg',
+        iconUrl: resolve,
         backgroundColor: '#59A10D',
         messageSize: '16',
         position: 'topRight',
@@ -49,7 +51,7 @@ function createPromises(event) {
         messageSize: '16',
         position: 'topRight',
         theme: 'dark',
-        iconUrl: '../img/octagon.svg',
+        iconUrl: rejected,
       });
     });
   myForm.reset();
