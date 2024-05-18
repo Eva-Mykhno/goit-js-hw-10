@@ -2,7 +2,7 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import octagon from '../img/octagon.svg';
+import rejected from '../img/octagon.svg';
 
 const startBtn = document.querySelector('button[data-start]');
 const timerDays = document.querySelector('[data-days]');
@@ -33,7 +33,7 @@ const options = {
         messageSize: '16',
         position: 'topRight',
         theme: 'dark',
-        iconUrl: octagon,
+        iconUrl: rejected,
       });
     }
   },
