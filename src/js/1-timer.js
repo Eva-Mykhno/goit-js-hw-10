@@ -5,6 +5,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 import rejected from '../img/octagon.svg';
 
 const startBtn = document.querySelector('button[data-start]');
+const chooseDate = document.querySelector('#datetime-picker');
 const timerDays = document.querySelector('[data-days]');
 const timerHours = document.querySelector('[data-hours]');
 const timerMinutes = document.querySelector('[data-minutes]');
@@ -16,6 +17,7 @@ startBtn.addEventListener('click', onTimerStart);
 
 startBtn.disabled = true;
 let userSelectedDate = null;
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -27,6 +29,7 @@ const options = {
     if (selectedDates[0] - currentDate > 0) {
       startBtn.disabled = false;
     } else {
+      startBtn.disabled = true;
       iziToast.show({
         message: 'Please choose a date in the future',
         backgroundColor: '#EF4040',
@@ -66,13 +69,16 @@ function addBeforeZero(value) {
 
 function onTimerStart() {
   const selectedDate = pickr.selectedDates[0];
+  chooseDate.disabled = true;
+  startBtn.disabled = true;
 
   userSelectedDate = setInterval(() => {
     const startTime = Date.now();
     const countDown = selectedDate - startTime;
-    startBtn.disabled = true;
+
     if (countDown < 0) {
       clearInterval(userSelectedDate);
+      chooseDate.disabled = false;
       return;
     }
     updateTimer(convertMs(countDown));
