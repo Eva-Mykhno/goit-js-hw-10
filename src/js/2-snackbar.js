@@ -35,7 +35,7 @@ function createPromises(event) {
     .then(delay => {
       iziToast.show({
         message: `Fulfilled promise in ${delay}ms`,
-        iconUrl: './img/circle.svg',
+        iconUrl: '/img/circle.svg',
         backgroundColor: '#59A10D',
         messageSize: '16',
         position: 'topRight',
@@ -49,7 +49,7 @@ function createPromises(event) {
         messageSize: '16',
         position: 'topRight',
         theme: 'dark',
-        iconUrl: './img/octagon.svg',
+        iconUrl: 'img/octagon.svg',
       });
     });
   myForm.reset();
