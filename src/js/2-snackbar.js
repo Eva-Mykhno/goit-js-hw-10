@@ -36,8 +36,6 @@ function createPromises(event) {
       iziToast.show({
         message: `Fulfilled promise in ${delay}ms`,
         iconUrl: './img/circle.svg',
-        color: '#FFFFFF',
-        messageColor: '#FFFFFF',
         backgroundColor: '#59A10D',
         messageSize: '16',
         position: 'topRight',
@@ -47,8 +45,6 @@ function createPromises(event) {
     .catch(delay => {
       iziToast.show({
         message: ` Rejected promise in ${delay}ms`,
-        color: '#FFFFFF',
-        messageColor: '#FFFFFF',
         backgroundColor: '#EF4040',
         messageSize: '16',
         position: 'topRight',

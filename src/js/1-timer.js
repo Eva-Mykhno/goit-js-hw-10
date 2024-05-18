@@ -9,7 +9,10 @@ const timerHours = document.querySelector('[data-hours]');
 const timerMinutes = document.querySelector('[data-minutes]');
 const timerSeconds = document.querySelector('[data-seconds]');
 
+startBtn.classList.add('start-btn');
+
 startBtn.addEventListener('click', onTimerStart);
+
 startBtn.disabled = true;
 let userSelectedDate = null;
 const options = {
@@ -19,14 +22,19 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     const currentDate = Date.now();
+
     if (selectedDates[0] - currentDate > 0) {
       startBtn.disabled = false;
     } else {
       iziToast.show({
         message: 'Please choose a date in the future',
+        backgroundColor: '#EF4040',
+        messageSize: '16',
+        position: 'topRight',
+        theme: 'dark',
+        iconUrl: './img/octagon.svg',
       });
     }
-    console.log(selectedDates[0]);
   },
 };
 
@@ -62,7 +70,6 @@ function onTimerStart() {
     const startTime = Date.now();
     const countDown = selectedDate - startTime;
     startBtn.disabled = true;
-
     if (countDown < 0) {
       clearInterval(userSelectedDate);
       return;
